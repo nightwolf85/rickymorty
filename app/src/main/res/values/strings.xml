@@ -1,3 +1,37 @@
 <resources>
-    <string name="app_name">rickymorty</string>
+    <string name="app_name">Rick y Morty</string>
+    <string name="datos_usuario">Datos de usuario</string>
+    <string name="idioma">Idioma</string>
+    <string-array name="opciones_idioma">
+        <item>Español</item>
+        <item>Inglés</item>
+    </string-array>
+    <string-array name="valores_idiomas">
+        <item>es</item>
+        <item>en</item>
+    </string-array>
+    <string name="tema">Tema</string>
+    <string-array name="opciones_tema">
+        <item>Claro</item>
+        <item>Oscuro</item>
+    </string-array>
+    <string-array name="valores_tema">
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
+    <string name="firebase">Cerrar sesión en Firebase</string>
+    <string name="titulo_episodios">Episodios</string>
+    <string name="titulo_estadisticas">Estadísticas</string>
+    <string name="titulo_ajustes">Ajustes</string>
+    <string name="titulo_acerca">Acerca de</string>
+    <string-array name="opciones_firebase">
+        <item>Si</item>
+        <item>No</item>
+    </string-array>
+    <string-array name="valores_firebase">
+        <item>y</item>
+        <item>n</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

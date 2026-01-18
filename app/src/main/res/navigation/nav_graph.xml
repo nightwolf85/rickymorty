@@ -1,0 +1,33 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentEpisodios">
+    <fragment
+        android:id="@+id/fragmentEpisodios"
+        android:name="com.example.rickymorty.FragmentEpisodios"
+        android:label="First Fragment"
+        android:layout="@layout/fragment_episodios" >
+        <action
+            android:id="@+id/action_episodios_to_detalles"
+            app:destination="@id/fragmentDetalles" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentDetalles"
+        android:name="com.example.rickymorty.FragmentDetalles"
+        android:label="Second Fragment"
+        android:layout="@layout/fragment_detalles" />
+    <fragment
+        android:id="@+id/fragmentAjustes"
+        android:name="com.example.rickymorty.FragmentAjustes"
+        android:label="Ajustes" />
+    <dialog
+        android:id="@+id/fragmentAcerca"
+        android:name="com.example.rickymorty.FragmentAcerca"
+        android:label="Acerca de" />
+    <fragment
+        android:id="@+id/fragmentEstadisticas"
+        android:name="com.example.rickymorty.FragmentEstadisticas"
+        android:label="Estadísticas"
+        tools:layout="@layout/fragment_estadisticas" />
+</navigation>

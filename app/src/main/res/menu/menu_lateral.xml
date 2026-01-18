@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/fragmentEpisodios"
+        android:title="@string/titulo_episodios"/>
+
+    <item
+        android:id="@+id/fragmentEstadisticas"
+        android:title="@string/titulo_estadisticas" />
+
+    <item
+        android:id="@+id/fragmentAjustes"
+        android:title="@string/titulo_ajustes"/>
+
+    <item
+        android:id="@+id/fragmentAcerca"
+        android:title="@string/titulo_acerca"/>
+</menu>

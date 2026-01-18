@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "87153770075",
+    "project_id": "rickymorty-frh",
+    "storage_bucket": "rickymorty-frh.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87153770075:android:41463dd922ca0e758b897e",
+        "android_client_info": {
+          "package_name": "com.example.rickymorty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "87153770075-hkmhb1gm9gtfd3qehkcmhov8bf449hei.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9VuDJHbF9TUZ4J5GXUA169VkATgrjOE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "87153770075-hkmhb1gm9gtfd3qehkcmhov8bf449hei.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

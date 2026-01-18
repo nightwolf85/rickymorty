@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="@string/datos_usuario">
+        <DropDownPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/opciones_idioma"
+            android:entryValues="@array/valores_idiomas"
+            android:key="idioma"
+            android:title="@string/idioma"
+            android:summary="Selecciona el idioma de la app"
+            app:useSimpleSummaryProvider="true" />
+        <DropDownPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/opciones_tema"
+            android:entryValues="@array/valores_tema"
+            android:key="tema"
+            android:title="@string/tema"
+            android:summary="Cambiar apariencia"
+            app:useSimpleSummaryProvider="true" />
+        <androidx.preference.Preference
+            android:key="cerrar_sesion"
+            android:title="@string/firebase"
+            android:summary="Pulsa para cerrar sesión y salir"
+            android:icon="@android:drawable/ic_lock_power_off" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
