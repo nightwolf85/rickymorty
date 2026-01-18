@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mis Estadísticas"
+        android:text="@string/estadisticas"
         android:textSize="28sp"
         android:textStyle="bold"
         android:layout_marginBottom="32dp"/>
@@ -18,7 +18,7 @@
         android:id="@+id/tvContador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cargando datos..."
+        android:text="@string/contador"
         android:textSize="20sp"
         android:layout_marginBottom="8dp"/>
 
@@ -26,7 +26,7 @@
         android:id="@+id/tvPorcentaje"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0%"
+        android:text="@string/porcentaje"
         android:textSize="48sp"
         android:textStyle="bold"
         android:textColor="@android:color/holo_green_dark"
@@ -35,7 +35,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Gráfica de progreso:"
+        android:text="@string/grafica"
         android:layout_gravity="start"
         android:layout_marginBottom="8dp"/>
 
@@ -62,7 +62,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Vistos vs Totales"
+        android:text="@string/comparativa"
         android:textSize="12sp"
         android:layout_marginTop="4dp"/>
 

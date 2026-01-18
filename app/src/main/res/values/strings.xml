@@ -32,6 +32,21 @@
         <item>y</item>
         <item>n</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="textoRegistro">No tengo cuenta - Registrarse</string>
+    <string name="textoSesion">Iniciar Sesión</string>
+    <string name="email">Correo electrónico</string>
+    <string name="pass">Contraseña</string>
+    <string name="estadisticas">Mis Estadísticas</string>
+    <string name="contador">Cargando datos...</string>
+    <string name="porcentaje">0%</string>
+    <string name="grafica">Gráfica de progreso:</string>
+    <string name="comparativa">Vistos vs Totales</string>
+    <string name="registro">Registrarse</string>
+    <string name="nuevaCuenta">Crear Cuenta Nueva</string>
+    <string name="visto">Marcar como visto</string>
+    <string name="fecha">Fecha</string>
+    <string name="codigo">Código</string>
+    <string name="episodio">Nombre del Episodio</string>
+    <string name="nombre">Nombre</string>
+    <string name="filtrar">Filtrar</string>
 </resources>
