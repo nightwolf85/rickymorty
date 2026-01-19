@@ -7,4 +7,11 @@
         android:icon="@android:drawable/ic_menu_view"
         android:title="@string/filtrar"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/guardarSeleccion"
+        android:title="Guardar Vistos"
+        android:icon="@android:drawable/ic_menu_save"
+        android:visible="false"
+        app:showAsAction="always" />
 </menu>

@@ -18,5 +18,6 @@ data class Episodio(
     @SerializedName("air_date")
     val airDate: String,
     val characters: List<String>,
-    var visto: Boolean = false
+    var visto: Boolean = false,
+    var seleccionado: Boolean = false
 )

@@ -39,6 +39,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
+            <CheckBox
+                android:id="@+id/cbSeleccion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:clickable="false"
+                android:focusable="false" />
+
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

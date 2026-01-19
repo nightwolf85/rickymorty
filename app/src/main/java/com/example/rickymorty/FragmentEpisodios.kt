@@ -7,8 +7,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.rickymorty.Episodio
-import com.example.rickymorty.RespuestaApi
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import retrofit2.Call
@@ -19,10 +17,13 @@ class FragmentEpisodios : Fragment() {
 
     private lateinit var adapter: EpisodiosAdapter
     private lateinit var recyclerView: RecyclerView
+    private var menuSuperior: Menu? = null
 
-    private var listaCompleta: List<Episodio> = ArrayList() // Guardamos TODOS aquí
-    private var soloVistos: Boolean = false // Para saber si el filtro está activo
+    // Variables de datos
+    private var listaCompleta: List<Episodio> = ArrayList()
+    private var soloVistos: Boolean = false
 
+    // Variables de Firebase
     private val db = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
 
@@ -44,16 +45,25 @@ class FragmentEpisodios : Fragment() {
         recyclerView = view.findViewById(R.id.recyclerViewEpisodios)
         recyclerView.layoutManager = LinearLayoutManager(context)
 
-        adapter = EpisodiosAdapter(ArrayList()) { episodio ->
-            val bundle = Bundle().apply {
-                putString("clave_nombre", episodio.name)
-                putString("clave_codigo", episodio.episode)
-                putString("clave_fecha", episodio.airDate)
-                putBoolean("clave_visto", episodio.visto)
-                putStringArrayList("clave_personajes", ArrayList(episodio.characters))
+        adapter = EpisodiosAdapter(
+            ArrayList(),
+
+            onEpisodioClick = { episodio ->
+                val bundle = Bundle().apply {
+                    putString("clave_nombre", episodio.name)
+                    putString("clave_codigo", episodio.episode)
+                    putString("clave_fecha", episodio.airDate)
+                    putBoolean("clave_visto", episodio.visto)
+                    putStringArrayList("clave_personajes", ArrayList(episodio.characters))
+                }
+                findNavController().navigate(R.id.action_episodios_to_detalles, bundle)
+            },
+
+            onModoSeleccionChange = { estaSeleccionando ->
+                val itemGuardar = menuSuperior?.findItem(R.id.guardarSeleccion)
+                itemGuardar?.isVisible = estaSeleccionando
             }
-            findNavController().navigate(R.id.action_episodios_to_detalles, bundle)
-        }
+        )
         recyclerView.adapter = adapter
     }
 
@@ -73,7 +83,7 @@ class FragmentEpisodios : Fragment() {
             }
 
             override fun onFailure(call: Call<RespuestaApi>, t: Throwable) {
-                Toast.makeText(context, "Error API: ${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Fallo de conexión API", Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -85,6 +95,7 @@ class FragmentEpisodios : Fragment() {
             db.collection("usuarios").document(userId).collection("vistos")
                 .get()
                 .addOnSuccessListener { documents ->
+
                     val listaCodigosVistos = documents.map { it.id }
 
                     for (episodio in episodiosApi) {
@@ -108,36 +119,69 @@ class FragmentEpisodios : Fragment() {
 
     private fun aplicarFiltro() {
         if (soloVistos) {
-            val listaFiltrada = listaCompleta.filter { it.visto == true }
+            val listaFiltrada = listaCompleta.filter { it.visto }
             adapter.actualizarDatos(listaFiltrada)
         } else {
             adapter.actualizarDatos(listaCompleta)
         }
     }
 
-
+    // --- MENÚ SUPERIOR (TOOLBAR) ---
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-
-        menu.add(Menu.NONE, 1, Menu.NONE, "Filtro Vistos")
-            .setIcon(android.R.drawable.ic_menu_view)
-            .setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM)
+        inflater.inflate(R.menu.menu_toolbar, menu)
+        menuSuperior = menu
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == 1) {
-            soloVistos = !soloVistos
+        return when (item.itemId) {
+            R.id.filtrar -> {
+                soloVistos = !soloVistos
+                aplicarFiltro()
 
-            if (soloVistos) {
-                Toast.makeText(context, "Mostrando solo VISTOS", Toast.LENGTH_SHORT).show()
-                item.setIcon(android.R.drawable.checkbox_on_background)
-            } else {
-                Toast.makeText(context, "Mostrando TODOS", Toast.LENGTH_SHORT).show()
-                item.setIcon(android.R.drawable.ic_menu_view)
+                if (soloVistos) Toast.makeText(context, "Filtro: Solo Vistos", Toast.LENGTH_SHORT).show()
+                else Toast.makeText(context, "Filtro: Todos", Toast.LENGTH_SHORT).show()
+
+                true
             }
-
-            aplicarFiltro()
-            return true
+            R.id.guardarSeleccion -> {
+                guardarSeleccionMasiva()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
-        return super.onOptionsItemSelected(item)
+    }
+
+    private fun guardarSeleccionMasiva() {
+        val seleccionados = adapter.obtenerSeleccionados()
+        if (seleccionados.isEmpty()) return
+
+        val userId = auth.currentUser?.uid ?: return
+
+        val batch = db.batch()
+
+        for (episodio in seleccionados) {
+            val docRef = db.collection("usuarios").document(userId)
+                .collection("vistos").document(episodio.episode)
+
+            val datos = hashMapOf(
+                "name" to episodio.name,
+                "episode" to episodio.episode,
+                "air_date" to episodio.airDate,
+                "characters" to listOf("Batch Update"),
+                "viewed" to true
+            )
+            batch.set(docRef, datos)
+
+            episodio.visto = true
+        }
+
+        batch.commit().addOnSuccessListener {
+            Toast.makeText(context, "Guardados ${seleccionados.size} episodios", Toast.LENGTH_SHORT).show()
+            adapter.cancelarSeleccion()
+            aplicarFiltro()
+        }.addOnFailureListener {
+            Toast.makeText(context, "Error al guardar", Toast.LENGTH_SHORT).show()
+        }
     }
 }
