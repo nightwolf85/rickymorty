@@ -40,7 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/visto"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPersonajes"
