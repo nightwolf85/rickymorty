@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/ricky_fondo">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tituloAjustes"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/ricky_neon"
+        android:layout_marginBottom="32dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/idioma"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:layout_marginBottom="8dp"/>
+
+    <RadioGroup
+        android:id="@+id/rgIdioma"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="24dp">
+
+        <RadioButton
+            android:id="@+id/rbEspanol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Español"
+            android:textColor="@color/white"
+            android:layout_marginEnd="16dp"/>
+
+        <RadioButton
+            android:id="@+id/rbIngles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="English"
+            android:textColor="@color/white"/>
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apariencia"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:layout_marginBottom="8dp"/>
+
+    <Switch
+        android:id="@+id/switchTema"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Modo Oscuro"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_marginBottom="40dp"/>
+
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cerrar Sesión"
+        android:backgroundTint="#D32F2F"
+        android:textColor="@color/white"/>
+</LinearLayout>
