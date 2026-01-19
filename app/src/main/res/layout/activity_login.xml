@@ -6,6 +6,15 @@
     android:padding="32dp"
     android:gravity="center">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/titulo"
+        android:textColor="@color/ricky_neon"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="48dp" />
+
     <EditText
         android:id="@+id/etEmailLogin"
         android:layout_width="match_parent"

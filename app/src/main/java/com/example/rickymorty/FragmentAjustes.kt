@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 
+//Esta función muestra los ajustes de la aplicación para cambiar el tema, el idioma o cerrar sesión.
 class FragmentAjustes : PreferenceFragmentCompat() {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {

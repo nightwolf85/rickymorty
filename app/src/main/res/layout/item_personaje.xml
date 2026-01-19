@@ -31,7 +31,8 @@
             android:textStyle="bold"
             android:maxLines="1"
             android:ellipsize="end"
-            android:text="@string/nombre" />
+            android:text="@string/nombre"
+            android:textColor="@color/black"/>
 
     </LinearLayout>
 

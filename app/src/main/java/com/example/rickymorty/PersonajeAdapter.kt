@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
+//Este adapter gestiona como se mostrarán los personajes en el recyclerview.
 class PersonajesAdapter(private val lista: List<Personaje>) :
     RecyclerView.Adapter<PersonajesAdapter.ViewHolder>() {
 

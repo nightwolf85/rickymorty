@@ -6,6 +6,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 
+//Aquí nos conectamos mediante la API y obtenemos el listado de episodios y los id de los personajes que usaremos posteriormente.
+
+//En la interfaz se indica que estamos buscando
 interface RickAndMortyService {
     @GET("episode") // Endpoint
     fun obtenerEpisodios(): Call<RespuestaApi>
@@ -13,6 +16,7 @@ interface RickAndMortyService {
     fun obtenerPersonajes(@Path("ids") ids: String): Call<List<Personaje>>
 }
 
+//Mediante este objeto se define la URL de la API y usando retrofit obtenemos la información que buscamos.
 object RetrofitClient {
     private const val BASE_URL = "https://rickandmortyapi.com/api/"
 

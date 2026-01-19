@@ -2,12 +2,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory android:title="@string/datos_usuario">
+    <PreferenceCategory android:title="@string/datosUsuario">
         <DropDownPreference
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:entries="@array/opciones_idioma"
-            android:entryValues="@array/valores_idiomas"
+            android:entries="@array/opcionesIdioma"
+            android:entryValues="@array/valoresIdiomas"
             android:key="idioma"
             android:title="@string/idioma"
             android:summary="Selecciona el idioma de la app"
@@ -15,8 +15,8 @@
         <DropDownPreference
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:entries="@array/opciones_tema"
-            android:entryValues="@array/valores_tema"
+            android:entries="@array/opcionesTema"
+            android:entryValues="@array/valoresTema"
             android:key="tema"
             android:title="@string/tema"
             android:summary="Cambiar apariencia"

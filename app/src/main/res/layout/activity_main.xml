@@ -25,7 +25,7 @@
                 android:elevation="4dp"
                 android:minHeight="?attr/actionBarSize"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:title="@string/app_name" />
+                app:title="@string/nombreAplicacion" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.fragment.app.FragmentContainerView

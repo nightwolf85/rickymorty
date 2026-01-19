@@ -13,8 +13,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+//Este fragment muestra el listado de episodios obtenido mediante la API.
 class FragmentEpisodios : Fragment() {
 
+    //Variables para la visualización
     private lateinit var adapter: EpisodiosAdapter
     private lateinit var recyclerView: RecyclerView
     private var menuSuperior: Menu? = null
@@ -27,6 +29,7 @@ class FragmentEpisodios : Fragment() {
     private val db = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
 
+    //Funciones para mostrar el menú
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -39,6 +42,7 @@ class FragmentEpisodios : Fragment() {
         return inflater.inflate(R.layout.fragment_episodios, container, false)
     }
 
+    //Función para mostrar los elementos en el recyclerview y verlo como un listado de episodios
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -59,6 +63,7 @@ class FragmentEpisodios : Fragment() {
                 findNavController().navigate(R.id.action_episodios_to_detalles, bundle)
             },
 
+            //Si se activa el modo selección múltiple, aparece el botón guardar.
             onModoSeleccionChange = { estaSeleccionando ->
                 val itemGuardar = menuSuperior?.findItem(R.id.guardarSeleccion)
                 itemGuardar?.isVisible = estaSeleccionando
@@ -72,22 +77,23 @@ class FragmentEpisodios : Fragment() {
         cargarDatos()
     }
 
+    //Carga los episodios.
     private fun cargarDatos() {
         RetrofitClient.instance.obtenerEpisodios().enqueue(object : Callback<RespuestaApi> {
             override fun onResponse(call: Call<RespuestaApi>, response: Response<RespuestaApi>) {
                 if (response.isSuccessful) {
                     val episodiosApi = response.body()?.results ?: emptyList()
-
                     cruzarConFirebase(episodiosApi)
                 }
             }
 
             override fun onFailure(call: Call<RespuestaApi>, t: Throwable) {
-                Toast.makeText(context, "Fallo de conexión API", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "ERROR: ${t.message}", Toast.LENGTH_LONG).show()
             }
         })
     }
 
+    //Esta función compara el listado de la api con el listado de firebase para marcar los que están ya vistos o no.
     private fun cruzarConFirebase(episodiosApi: List<Episodio>) {
         val userId = auth.currentUser?.uid
 
@@ -117,6 +123,7 @@ class FragmentEpisodios : Fragment() {
         }
     }
 
+    //Aplica los filtros tras la comparativa anterior.
     private fun aplicarFiltro() {
         if (soloVistos) {
             val listaFiltrada = listaCompleta.filter { it.visto }
@@ -126,13 +133,14 @@ class FragmentEpisodios : Fragment() {
         }
     }
 
-    // --- MENÚ SUPERIOR (TOOLBAR) ---
+    //Muestra el menú en la toolbar
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_toolbar, menu)
         menuSuperior = menu
         super.onCreateOptionsMenu(menu, inflater)
     }
 
+    //Si se activa el botón para filtrar, muestra solamente los vistos o todos según el estado anterior.
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.filtrar -> {
@@ -152,6 +160,7 @@ class FragmentEpisodios : Fragment() {
         }
     }
 
+    //Esta función guarda como vistos todos los seleccionados con el modo de selección múltiple
     private fun guardarSeleccionMasiva() {
         val seleccionados = adapter.obtenerSeleccionados()
         if (seleccionados.isEmpty()) return

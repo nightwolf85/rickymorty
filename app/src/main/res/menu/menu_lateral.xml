@@ -3,17 +3,17 @@
 
     <item
         android:id="@+id/fragmentEpisodios"
-        android:title="@string/titulo_episodios"/>
+        android:title="@string/tituloEpisodios"/>
 
     <item
         android:id="@+id/fragmentEstadisticas"
-        android:title="@string/titulo_estadisticas" />
+        android:title="@string/tituloEstadisticas" />
 
     <item
         android:id="@+id/fragmentAjustes"
-        android:title="@string/titulo_ajustes"/>
+        android:title="@string/tituloAjustes"/>
 
     <item
         android:id="@+id/fragmentAcerca"
-        android:title="@string/titulo_acerca"/>
+        android:title="@string/tituloAcerca"/>
 </menu>

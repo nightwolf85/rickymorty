@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
+//Activity para iniciar sesión en la aplicación. La conexión es contra firebase.
 class Login : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth

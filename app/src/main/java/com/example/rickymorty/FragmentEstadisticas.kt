@@ -8,15 +8,16 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.rickymorty.RespuestaApi
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+//Este fragment muestra las estadísticas de los episodios vistos frente al total de episodios
 class FragmentEstadisticas : Fragment() {
 
+    //Variables de firebase
     private val db = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
 
@@ -32,12 +33,12 @@ class FragmentEstadisticas : Fragment() {
         calcularEstadisticas(view)
     }
 
+    //Aquí se calculan los episodios vistos frente al total de episodios.
     private fun calcularEstadisticas(view: View) {
         RetrofitClient.instance.obtenerEpisodios().enqueue(object : Callback<RespuestaApi> {
             override fun onResponse(call: Call<RespuestaApi>, response: Response<RespuestaApi>) {
                 if (response.isSuccessful) {
                     val totalEpisodios = response.body()?.info?.count ?: 0
-
                     contarVistosEnFirebase(view, totalEpisodios)
                 }
             }
@@ -48,6 +49,7 @@ class FragmentEstadisticas : Fragment() {
         })
     }
 
+    //Se cuentan los almacenados en firebase como vistos
     private fun contarVistosEnFirebase(view: View, total: Int) {
         val userId = auth.currentUser?.uid
         if (userId == null) return
@@ -63,6 +65,7 @@ class FragmentEstadisticas : Fragment() {
             }
     }
 
+    //En esta función se actualiza la barra que se muestra en el fragment para indicar cuantos se han visto respecto al total.
     private fun actualizarUI(view: View, vistos: Int, total: Int) {
         val tvContador = view.findViewById<TextView>(R.id.tvContador)
         val tvPorcentaje = view.findViewById<TextView>(R.id.tvPorcentaje)

@@ -1,34 +1,34 @@
 <resources>
-    <string name="app_name">Rick y Morty</string>
-    <string name="datos_usuario">Datos de usuario</string>
+    <string name="nombreAplicacion">Rick y Morty</string>
+    <string name="datosUsuario">Datos de usuario</string>
     <string name="idioma">Idioma</string>
-    <string-array name="opciones_idioma">
+    <string-array name="opcionesIdioma">
         <item>Español</item>
         <item>Inglés</item>
     </string-array>
-    <string-array name="valores_idiomas">
+    <string-array name="valoresIdiomas">
         <item>es</item>
         <item>en</item>
     </string-array>
     <string name="tema">Tema</string>
-    <string-array name="opciones_tema">
+    <string-array name="opcionesTema">
         <item>Claro</item>
         <item>Oscuro</item>
     </string-array>
-    <string-array name="valores_tema">
+    <string-array name="valoresTema">
         <item>light</item>
         <item>dark</item>
     </string-array>
     <string name="firebase">Cerrar sesión en Firebase</string>
-    <string name="titulo_episodios">Episodios</string>
-    <string name="titulo_estadisticas">Estadísticas</string>
-    <string name="titulo_ajustes">Ajustes</string>
-    <string name="titulo_acerca">Acerca de</string>
-    <string-array name="opciones_firebase">
+    <string name="tituloEpisodios">Episodios</string>
+    <string name="tituloEstadisticas">Estadísticas</string>
+    <string name="tituloAjustes">Ajustes</string>
+    <string name="tituloAcerca">Acerca de</string>
+    <string-array name="opcionesFirebase">
         <item>Si</item>
         <item>No</item>
     </string-array>
-    <string-array name="valores_firebase">
+    <string-array name="valoresFirebase">
         <item>y</item>
         <item>n</item>
     </string-array>
@@ -49,4 +49,5 @@
     <string name="episodio">Nombre del Episodio</string>
     <string name="nombre">Nombre</string>
     <string name="filtrar">Filtrar</string>
+    <string name="titulo">RICK AND MORTY</string>
 </resources>

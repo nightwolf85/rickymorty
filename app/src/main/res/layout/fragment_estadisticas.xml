@@ -49,13 +49,14 @@
             android:id="@+id/viewVistos"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:background="@android:color/holo_green_dark"
-            android:layout_weight="0" /> <View
-        android:id="@+id/viewRestantes"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent"
-        android:layout_weight="100" />
+            android:background="@color/ricky_neon"
+            android:layout_weight="0" />
+        <View
+            android:id="@+id/viewRestantes"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="#20FFFFFF"
+            android:layout_weight="100" />
 
     </LinearLayout>
 

@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 
+//En esta clase, se define el proceso para registrarse como nuevo usuario en Firebase en caso de no tener usuario ya definido para iniciar sesión.
 class Registro : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth

@@ -5,6 +5,8 @@ import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 
+
+//En esta clase se define el pop up que saltará al pulsar en la opción Acerca de del menú lateral.
 class FragmentAcerca : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 

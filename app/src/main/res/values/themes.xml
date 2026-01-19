@@ -1,9 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Rickymorty" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.RickyMorty" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/ricky_neon</item>
+        <item name="colorPrimaryVariant">@color/ricky_neon</item>
+        <item name="colorOnPrimary">@color/ricky_fondo</item> <item name="android:windowBackground">@color/ricky_fondo</item>
+        <item name="colorSurface">@color/ricky_fondo</item>
+
+        <item name="android:textColor">@color/texto_primario</item>
+        <item name="android:textColorPrimary">@color/texto_primario</item>
     </style>
 
-    <style name="Theme.Rickymorty" parent="Base.Theme.Rickymorty" />
+    <style name="Theme.RickyMorty" parent="Base.Theme.RickyMorty" />
 </resources>
