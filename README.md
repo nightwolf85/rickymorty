@@ -1,8 +1,8 @@
 # App Rick and Morty - Proyecto Android
 
 ## 1. Introducción
-Esta app te ayuda a controlar tus episodios de Rick y Morty. Puedes ver la lista completa sacada de una base de datos externa, 
-revisar los detalles de cada episodio,personajes incluidos, y marcar los que ya has visto. Además, guarda esa información de los ya vistos la nube.
+Esta app te ayuda a controlar tus episodios de Rick y Morty. Puedes ver una lista de 20 episodios sacada de una base de datos externa (es la cantidad que 
+se obtiene por defecto sin usar paginación), revisar los detalles de cada episodio,personajes incluidos, y marcar los que ya has visto. Además, guarda esa información de los ya vistos la nube. 
 
 
 
@@ -15,6 +15,7 @@ revisar los detalles de cada episodio,personajes incluidos, y marcar los que ya 
 - Estadísticas: Hay una pantalla donde ves tu progreso con gráficos y porcentajes.
 - Ajustes: Puedes cambiar el idioma y el estilo visual (y se guarda), y también cerrar sesión.
 - Acerca de: Aquí encuentras datos del creador de la app y la versión.
+- Selección múltiple: Pulsando un episodio varios segundos hace aparecer un check para seleccionar varios episodios.
 
 
 ## 3. Tecnologías utilizadas
