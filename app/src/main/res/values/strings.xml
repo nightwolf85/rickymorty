@@ -50,4 +50,6 @@
     <string name="nombre">Nombre</string>
     <string name="filtrar">Filtrar</string>
     <string name="titulo">RICK AND MORTY</string>
+    <string name="fragmentEpisodios">Listado de episodios</string>
+    <string name="fragmentDetalles">Detalles del episodio</string>
 </resources>

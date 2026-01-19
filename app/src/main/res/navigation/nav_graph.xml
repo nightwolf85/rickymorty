@@ -6,7 +6,7 @@
     <fragment
         android:id="@+id/fragmentEpisodios"
         android:name="com.example.rickymorty.FragmentEpisodios"
-        android:label="First Fragment"
+        android:label="@string/fragmentEpisodios"
         android:layout="@layout/fragment_episodios" >
         <action
             android:id="@+id/action_episodios_to_detalles"
@@ -15,19 +15,19 @@
     <fragment
         android:id="@+id/fragmentDetalles"
         android:name="com.example.rickymorty.FragmentDetalles"
-        android:label="Second Fragment"
+        android:label="@string/fragmentDetalles"
         android:layout="@layout/fragment_detalles" />
     <fragment
         android:id="@+id/fragmentAjustes"
         android:name="com.example.rickymorty.FragmentAjustes"
-        android:label="Ajustes" />
+        android:label="@string/tituloAjustes" />
     <dialog
         android:id="@+id/fragmentAcerca"
         android:name="com.example.rickymorty.FragmentAcerca"
-        android:label="Acerca de" />
+        android:label="@string/tituloAcerca" />
     <fragment
         android:id="@+id/fragmentEstadisticas"
         android:name="com.example.rickymorty.FragmentEstadisticas"
-        android:label="Estadísticas"
+        android:label="@string/tituloEstadisticas"
         tools:layout="@layout/fragment_estadisticas" />
 </navigation>
